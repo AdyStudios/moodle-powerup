@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    // 1. Video Player Controls (Arrows for Seek/Volume)
+    // video player
     const initVideoControls = () => {
         document.addEventListener('keydown', (e) => {
             const video = document.querySelector('video');
@@ -44,7 +44,7 @@
         });
     };
 
-    // 2. Auto-Login
+    // auto login
     const initAutoLogin = () => {
         const loginBtn = document.querySelector('#submit_button');
         const username = document.querySelector('#username');
@@ -60,14 +60,14 @@
         }
     };
 
-    //3. Redirect
+    // redirect after login
     const initRedirect = () => {
         if (window.location.pathname === '/' && document.referrer.includes('idp.uni-obuda.hu')) {
             window.location.replace('/my/courses.php');
         }
     };
 
-    // 4. Course Page Defaults (Retries until Moodle finishes loading)
+    // kurzusok default
     const initCourseDefaults = () => {
         if (!window.location.pathname.includes('/my/courses.php')) return;
 
@@ -81,7 +81,7 @@
             let limitSet = false;
             let semesterSet = false;
 
-            // 1. Force "Show All"
+            // mind
             if (pagingLimit) {
                 const limitBtn = pagingLimit.querySelector('button.dropdown-toggle');
                 const showAll = pagingLimit.querySelector('a.dropdown-item[data-limit="0"]');
@@ -92,7 +92,7 @@
                 }
             }
 
-            // 2. Select Latest Semester
+            // latest semester
             if (filterRegion) {
                 const groupBtn = filterRegion.querySelector('#groupingdropdown');
                 const semesterLinks = Array.from(filterRegion.querySelectorAll('a.dropdown-item[data-filter="grouping"][data-value="customfield"]'))
@@ -114,13 +114,12 @@
         }, 500);
     };
 
-    // Main Execution (Modular for future additions)
+
     const run = () => {
         initVideoControls();
         initAutoLogin();
         initRedirect();
         initCourseDefaults();
-        // Add new init() functions here in the future
     };
 
     if (document.readyState === 'loading') {

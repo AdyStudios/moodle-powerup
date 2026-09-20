@@ -10,8 +10,7 @@ Ha tudod, mit csinálsz, [kattints ide a telepítéshez](https://github.com/AdyS
 Egyébként olvasd el lent a telepítési útmutatót.
 
 ## Telepítés
-
-A szkript a legtöbb modern böngészőre telepíthető.<br>
+<sup>(bocsi a copy-paste-ért de most nem voltam képes fogalmazni)</sup><br>
 A telepítéssel elfogadod a [használat feltételeit](#licensz).
 
 1. Telepítsd a **TamperMonkey** kiegészítőt az alábbi oldalak egyikéről:
@@ -31,4 +30,4 @@ A telepítéssel elfogadod a [használat feltételeit](#licensz).
 * Mindig legfrissebb félév a kurzusokban
 
 ## Megjegyzések
-*Az autómata bejelentkezés a böngészőre hagyakszik az adatok kitöltéséhez, mivel a script nem tárol személyes információkat.
+* Az autómata bejelentkezés a böngészőre hagyakszik az adatok kitöltéséhez, mivel a script nem tárol személyes információkat.

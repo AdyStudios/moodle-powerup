@@ -1,9 +1,10 @@
 # Moodle PowerUp!
 Ez a userpscript felturbózza az EDTI Moodle oldalakat. Automatikus bejelentkezés, aktuális kurzuslista és videó-vezérlés billenytűzettel. A projekt célja alapvető "quality of life" funkciók létrehozása.
 
-## verzió
+## Infók, verzió
 * Jelenlegi verzió: **0.1.0**
 * Kiadás dátuma: 2026.09.20
+* Módosítva: - (első release)
 
 Ha tudod, mit csinálsz, [kattints ide a telepítéshez](https://github.com/AdyStudios/moodle-powerup/releases/latest/download/mpu.user.js).<br>
 Egyébként olvasd el lent a telepítési útmutatót.

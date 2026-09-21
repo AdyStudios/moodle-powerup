@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         Moodle PowerUp!
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      0.1.1
 // @description  Custom Moodle video controls and auto-login
 // @match        *://main.elearning.uni-obuda.hu/*
 // @match        *://idp.uni-obuda.hu/*
 // @grant        none
 // ==/UserScript==
+
+const version = "0.1.1";
 
 (function () {
   "use strict";
@@ -18,8 +20,7 @@
       if (!video) return;
 
       // Only trigger if not typing in an input/textarea
-      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName))
-        return;
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
 
       const skipSec = 5;
       const volStep = 0.1;
@@ -243,9 +244,43 @@
 
     const observer = new MutationObserver(() => updateItems());
     const courseContent = document.querySelector(".course-content");
-    if (courseContent)
-      observer.observe(courseContent, { childList: true, subtree: true });
+    if (courseContent) observer.observe(courseContent, { childList: true, subtree: true });
   };
+
+  // indicator
+      const initLoadedIndicator = () => {
+          if (document.querySelector('#moodle-powerup-indicator')) return;
+
+          const style = document.createElement('style');
+          style.innerHTML = `
+              #moodle-powerup-indicator {
+                  position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+                  color: white; border-radius: 50px;
+                  display: flex; align-items: center; padding: 10px 15px;
+                  box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: padding 0.3s;
+                  white-space: nowrap; overflow: hidden; cursor: help;
+              }
+              #moodle-powerup-indicator .text {
+                  margin-left: 8px; font-weight: bold; font-size: 14px;
+                  transition: max-width 0.3s, opacity 0.3s, margin 0.3s;
+                  max-width: 200px; opacity: 1;
+              }
+              #moodle-powerup-indicator.condensed { padding: 10px; }
+              #moodle-powerup-indicator.condensed .text { max-width: 0; opacity: 0; margin-left: 0; }
+              #moodle-powerup-indicator:hover { padding: 10px 15px; }
+              #moodle-powerup-indicator:hover .text { max-width: 200px; opacity: 1; margin-left: 8px; }
+          `;
+          document.head.appendChild(style);
+
+          const indicator = document.createElement('div');
+        indicator.id = 'moodle-powerup-indicator';
+        indicator.className = 'bg-primary text-white';
+          indicator.title = 'Moodle PowerUp! v' + version;
+          indicator.innerHTML = '<i class="fa fa-bolt"></i><span class="text">Moodle PowerUp! v' + version + '</span>';
+          document.body.appendChild(indicator);
+
+          setTimeout(() => indicator.classList.add('condensed'), 500);
+      };
 
   const run = () => {
     initVideoControls();
@@ -253,6 +288,7 @@
     initRedirect();
     initCourseDefaults();
     initItemHider();
+    initLoadedIndicator();
   };
 
   if (document.readyState === "loading") {

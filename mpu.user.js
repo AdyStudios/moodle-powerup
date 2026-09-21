@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Moodle Superuser
+// @name         Moodle PowerUp!
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Custom Moodle video controls and auto-login

@@ -134,7 +134,8 @@ const version = "0.1.1";
     }, 500);
   };
 
-  // hider
+  //hider
+  //TODO: "vannak rejetett elemek" figyelmeztetés kurzus megnyitásakor
   const initItemHider = () => {
     if (!window.location.pathname.includes("/course/view.php")) return;
 

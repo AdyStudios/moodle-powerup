@@ -34,3 +34,6 @@ A telepítéssel elfogadod a [használat feltételeit](#licensz).
 
 ## Megjegyzések
 * Az autómata bejelentkezés a böngészőre hagyakszik az adatok kitöltéséhez, mivel a script nem tárol személyes információkat.
+
+## Közreműködés
+Nem dologzok a projekten teljes időben, ezért bármilyen javaslatot vagy pull-requestet szívesen várok. 
